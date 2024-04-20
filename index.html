@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Socket.IO chat</title>
+        <meta charset="utf-8" />
+        <link rel="stylesheet" href="./style.css" />
+    </head>
+    <body>
+        <ul id="messages"></ul>
+        <form onsubmit="sendMessage(event)" action="">
+            <input id="newMessage" autocomplete="off" rows="2"></input>
+            <input type="submit" value="Send" />
+        </form>
+        <script src="/socket.io/socket.io.js"></script>
+        <script>
+            const socket = io();
+
+            socket.on("receive message", ({ message, time }) => {
+                const li = document.createElement("li");
+                li.innerHTML = `<div class="message">${message}</div><div class="time">${time}</div>`;
+                document.getElementById("messages").append(li);
+            });
+
+            const sendMessage = (e) => {
+                e.preventDefault();
+                const input = document.getElementById("newMessage");
+                const message = input.value;
+                if (message.length === 0) return false;
+
+                const time = new Date().toLocaleTimeString();
+                socket.emit("send message", { message, time });
+                input.value = "";
+            };
+        </script>
+    </body>
+</html>

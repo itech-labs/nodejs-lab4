@@ -1,0 +1,82 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+}
+
+form {
+    background: #fff;
+    padding: 15px;
+    border-radius: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    position: fixed;
+    bottom: 20px;
+    width: calc(100% - 30px);
+    max-width: 400px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+#newMessage {
+    resize: none;
+    font-size: 15px;
+    font-family: Arial, sans-serif;
+    border: 1px solid #ccc;
+    padding: 10px;
+    width: calc(100% - 20px);
+    margin-bottom: 10px;
+    border-radius: 10px;
+}
+
+input[type="submit"] {
+    width: 100%;
+    background: #2196f3;
+    border: none;
+    padding: 10px;
+    color: white;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+input[type="submit"]:hover {
+    background: #0b7dda;
+}
+
+#messages {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    color: black;
+    max-width: 600px;
+    margin: auto;
+}
+
+#messages li {
+    padding: 10px 15px;
+    border-radius: 10px;
+    margin-bottom: 10px;
+    position: relative;
+    background: #fff;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+#messages li:nth-child(odd) {
+    background: #f2f2f2;
+}
+
+#messages li .time {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #999;
+    font-size: 12px;
+}
+
+#messages li .message {
+    word-break: break-all;
+    flex-grow: 1;
+}
